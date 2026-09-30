@@ -1,0 +1,292 @@
+/* RESET BÁSICO E CORES TEMA HATER */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121214;
+    color: #e1e1e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 120px; /* Espaço para o painel fixo de postagem não cobrir o feed */
+}
+
+/* HEADER ESTILO REDE SOCIAL (VERMELHO FOGO) */
+#cabeçalho {
+    width: 100%;
+    background: linear-gradient(90deg, #ff0000, #cc0000);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+#IHate-Title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#IHate-Title::after {
+    content: " 🔥";
+}
+
+/* BOTÕES DO CABEÇALHO (NAVEGAÇÃO E LOGIN) */
+#cabeçalho button, #login-bt, #user_bt {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#cabeçalho button:hover {
+    background-color: #1a1a1a;
+    transform: scale(1.05);
+    border-color: #ff4d4d;
+}
+
+#user_bt {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #111;
+    color: #ff3333;
+    border: 2px solid #ff3333;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+/* FEED DE POSTS (BALÕES DE FALA) */
+/* FEED DE POSTS (LARGURA EXPANDIDA E NÃO CENTRALIZADO) */
+#feed {
+    width: 100%;
+    max-width: 900px; /* Aumentado para dar mais espaço de leitura */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 20px 24px 5%; /* Alinhado levemente à esquerda com 5% de margem */
+    margin: 0; /* Remove a centralização automática */
+}
+
+/* CARD DE CADA POSTAGEM (BALÕES MAIORES) */
+#msm-content {
+    background-color: #202024;
+    border: 1px solid #29292e;
+    border-left: 5px solid #ff0000; /* Detalhe em vermelho um pouco mais marcante */
+    border-radius: 16px;
+    padding: 24px; /* Aumentado de 16px para 24px para criar um balão bem mais amplo */
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#msm-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 0, 0, 0.2);
+}
+
+#name-user-msm {
+    color: #ff4d4d;
+    font-size: 1.15rem; /* Nome um pouco maior */
+    font-weight: 700;
+    display: inline-block;
+}
+
+#user-msm {
+    color: #ececcf;
+    font-size: 1.15rem; /* Texto do post mais destacado e legível */
+    line-height: 1.5;
+    margin: 12px 0 16px 0;
+    word-break: break-word;
+}
+
+#time-msm {
+    color: #7c7c8a;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* IMAGEM DENTRO DO BALÃO AMAPLIADO */
+.post-img {
+    max-width: 100%;
+    max-height: 450px; /* Permite imagens maiores dentro do card expandido */
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 12px 0;
+    border: 1px solid #323238;
+}
+
+/* BOTÃO DE LIKE AJUSTADO AO NOVO ESPAÇAMENTO */
+#like-bt {
+    background-color: #29292e;
+    color: #ff4d4d;
+    border: 1px solid #323238;
+    padding: 8px 18px; /* Botão um pouco maior para acompanhar o card */
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+#like-bt::before {
+    content: "🔥";
+}
+
+#like-bt:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ÁREA FIXA DE POSTAGEM (RODAPÉ FIXO NA TELA) */
+#home-room {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #121214;
+    border-top: 1px solid #29292e;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.7);
+    z-index: 99;
+}
+
+#postagens_zone {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* INPUT DE MENSAGEM (BEM MAIOR) */
+#mensage_text {
+    flex: 3; /* Ocupa a maior parte do espaço */
+    background-color: #202024;
+    border: 1px solid #323238;
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 24px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+#mensage_text:focus {
+    border-color: #ff0000;
+}
+
+/* INPUT DE URL DA IMAGEM (PEQUENO) */
+#foto-post {
+    flex: 1; /* Fica bem menor comparado ao texto */
+    background-color: #202024;
+    border: 1px solid #323238;
+    color: #a8a8b3;
+    padding: 12px 12px;
+    border-radius: 24px;
+    outline: none;
+    font-size: 0.8rem;
+    transition: border-color 0.2s;
+}
+
+#foto-post:focus {
+    border-color: #ff0000;
+    color: #ffffff;
+}
+
+#postar {
+    background: linear-gradient(135deg, #ff0000, #b30000);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#postar:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+/* TELA MODAL DE LOGIN */
+#login-room {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #202024;
+    border: 1px solid #ff0000;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    z-index: 101;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+}
+
+#title-login {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+}
+
+#x {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #7c7c8a;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#login-room input {
+    width: 100%;
+    background-color: #121214;
+    border: 1px solid #323238;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+#create-conta {
+    width: 100%;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
